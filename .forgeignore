@@ -1,0 +1,18 @@
+# Generated and dependency directories
+node_modules/
+dist/
+build/
+coverage/
+.next/
+.cache/
+
+# Local/editor files
+.git/
+.vscode/
+.idea/
+*.log
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
