@@ -2,90 +2,107 @@
 
 > **Local-first developer engineering, security analysis, project health and code intelligence workspace.**
 
-SAYANOX FORGE is a browser-native engineering cockpit built around a simple principle: **your source code should stay yours**. It analyzes project files locally in the browser, produces deterministic security signals, validates common configuration, generates project foundations, and exports portable reports — without a backend or paid AI API.
+[![CI](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/ci.yml/badge.svg)](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/ci.yml) [![Deploy](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/pages.yml/badge.svg)](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/pages.yml) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-## Why FORGE?
+## 🚀 Try FORGE
 
-Modern developer tooling often sends source code to remote services. FORGE takes a different approach: load a project into your browser and inspect it locally. The engine is deterministic and inspectable, so a developer can understand why a finding was produced instead of relying on an opaque model decision.
+**Live browser demo:** https://sayan9168.github.io/SAYANOX-FORGE/
 
-## v0.3 — Final feature release
+No account is required by the application. Load a project folder in the browser and run the local analyzer. The demo is designed for safe testing with sample or non-sensitive source code.
+
+> **Privacy note:** Do not upload production credentials or other sensitive material. FORGE is designed for local browser processing, but browser storage and browser security boundaries still matter.
+
+## What is FORGE?
+
+SAYANOX FORGE is a browser-native engineering cockpit built around a simple principle: **your source code should stay yours**. It analyzes project files locally in the browser, produces deterministic security signals, validates common configuration, generates project foundations, and exports portable reports — without a runtime backend or paid AI API.
+
+## v0.3 — Feature-complete foundation
 
 ### 🛡️ Security intelligence
 - 30 deterministic security rules covering secrets, injection, XSS sinks, SSRF, path traversal, weak cryptography, insecure transport, Docker exposure, credential URLs, CORS and more.
-- Severity-aware findings: critical, high, medium, low and info.
-- Search/filter findings.
-- Per-rule suppression.
-- Path-pattern suppression for generated/vendor directories.
+- Critical/high/medium/low/info severity model.
+- Finding search and filtering.
+- Per-rule suppression and path-pattern suppression.
 - Security rule catalog with IDs, titles and severity.
 
 ### 🔎 Engineering analysis
-- Local project folder ingestion through browser file APIs.
+- Browser folder ingestion using File APIs.
 - Project health score.
-- Dependency discovery for npm and Python requirements.
+- npm and Python dependency discovery.
 - License hints.
 - JSON/configuration validation.
-- Project statistics: file count, total size and file-type distribution.
-- Local scan history stored in browser storage.
+- Project statistics and file-type distribution.
+- Local scan history.
 
 ### 📦 Project generation
 - React + TypeScript template.
 - Node API template.
 - Python service template.
 - Static web template.
-- Real dependency-free ZIP export directly in the browser.
+- Dependency-free ZIP export generated in the browser.
 
 ### 📊 Reporting
-- SARIF 2.1.0 export.
-- JSON export.
-- Markdown export.
-- HTML export with output escaping.
-- Reports include version, score, file count and findings.
+- SARIF 2.1.0.
+- JSON.
+- Markdown.
+- HTML with output escaping.
 
 ### 🧩 Extension architecture
 - Validated plugin registry.
-- Duplicate plugin protection.
+- Duplicate protection.
 - Plugin manifests.
-- Isolated failure handling so one plugin cannot crash the scan pipeline.
+- Failure isolation around plugin execution.
 
 ### ⚡ Developer experience
-- Command palette with `Ctrl/Cmd + K`.
-- Responsive desktop/mobile workspace.
-- No account required by the application.
-- No source upload by the application.
-- No paid AI API.
+- Command palette (`Ctrl/Cmd + K`).
+- Responsive desktop/mobile UI.
+- No FORGE account required.
 - No runtime backend dependency.
+- No paid AI API.
 
-## Architecture
+## 🧪 Test it in the live demo
+
+1. Open the **Live browser demo** above.
+2. Start with the built-in sample project.
+3. Open **Analyzer** and review findings.
+4. Open **Security** to inspect the 30-rule catalog.
+5. Try severity filters and ignored rules.
+6. Open **Insights** for project statistics and validation.
+7. Open **Generator** and export a sample project ZIP.
+8. Export SARIF, JSON, Markdown or HTML reports.
+9. If you want to test your own code, load a local project folder using **Open project**.
+
+## 🏗️ Architecture
 
 ```text
 src/
 ├── engine/
-│   ├── analyzer.ts       # 30-rule deterministic security engine
+│   ├── analyzer.ts       # deterministic security engine
 │   ├── dependencies.ts   # npm/Python dependency discovery
 │   ├── files.ts          # browser file ingestion
 │   ├── plugins.ts        # extension registry
 │   ├── policy.ts         # severity/rule/path filtering
 │   ├── project.ts        # project templates
-│   ├── reports.ts        # SARIF/JSON/Markdown/HTML
-│   ├── validation.ts     # config validation + project statistics
+│   ├── reports.ts        # report exporters
+│   ├── validation.ts     # config validation + statistics
 │   └── zip.ts            # dependency-free ZIP writer
-├── types.ts              # shared domain contracts
-├── App.tsx               # workspace UI
-├── main.tsx              # application bootstrap
-└── styles.css            # responsive design system
+├── types.ts
+├── App.tsx
+├── main.tsx
+└── styles.css
 ```
 
-## Security model
+## 🔐 Security model
 
-FORGE is a **defensive developer tool**. Findings are heuristic advisory signals, not proof of exploitability. A clean scan is not proof that a project is secure. FORGE does not replace professional SAST/DAST, dependency vulnerability databases, penetration testing, code review, threat modeling, or runtime monitoring.
+FORGE is a **defensive developer tool**. Findings are heuristic advisory signals, not proof of exploitability. A clean scan is not proof that a project is secure. FORGE does not replace professional SAST/DAST, dependency vulnerability databases, penetration testing, code review, threat modeling or runtime monitoring.
 
-Do not paste production credentials into the UI. Keep sensitive projects and secrets out of browser storage. Review every finding before making a security decision.
+Use FORGE only on code and systems you own or are explicitly authorized to assess.
 
-## Privacy
+## 🔒 Privacy model
 
-The application is designed to process loaded source files locally in the browser. It does not require a FORGE backend or paid AI API. Browser storage is used only for local scan history. Deployments can be independently inspected from the source repository.
+Source analysis is designed to happen in the browser. FORGE does not require a FORGE backend or paid AI API. Scan history is stored locally in browser storage. The live demo is a static deployment of the application.
 
-## Development
+## 💻 Development
 
 Requirements: a current Node.js LTS release and npm.
 
@@ -109,22 +126,26 @@ npm run build
 npm run preview
 ```
 
-## CI
+## 🌐 Deployment
 
-GitHub Actions runs type checking, tests and a production build on pushes and pull requests targeting `main`.
+The repository includes a GitHub Pages workflow. Every push to `main` builds, tests and deploys the static application to:
 
-## Contributing
+**https://sayan9168.github.io/SAYANOX-FORGE/**
 
-See `CONTRIBUTING.md`. Security-sensitive changes should include regression tests and a short threat-model note. Never commit credentials, private keys, personal data, or generated secrets.
+The deployment workflow uses GitHub Pages permissions and uploads only the generated `dist` artifact.
 
-## Responsible security research
+## 🤝 Contributing
 
-Use FORGE only on code and systems you own or are explicitly authorized to assess. If you discover a security issue in FORGE itself, follow `SECURITY.md` and provide a reproducible report without including real secrets.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Security-sensitive changes should include regression tests and a short threat-model note. Never commit credentials, private keys, personal data or generated secrets.
 
-## Project status
+## 🐛 Security reports
 
-SAYANOX FORGE v0.3 is the intended feature-complete release of the browser-native workspace. Future work should prioritize maintenance, compatibility, test coverage, accessibility, performance, and carefully scoped security improvements rather than unnecessary feature bloat.
+See [`SECURITY.md`](SECURITY.md) for responsible disclosure guidance. Do not publish real credentials, private keys or sensitive personal data in an issue.
 
-## License
+## 📄 License
 
-Apache License 2.0. See `LICENSE`.
+Apache License 2.0. See [`LICENSE`](LICENSE).
+
+---
+
+Built by **SAYANOX** with a privacy-first, browser-native engineering philosophy.
