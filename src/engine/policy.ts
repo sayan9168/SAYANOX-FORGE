@@ -7,8 +7,9 @@ export interface ScanPolicy {
 }
 
 const wildcardToRegExp = (pattern: string): RegExp => {
-  const escaped = pattern.trim().replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*').replace(/\?/g, '.');
-  return new RegExp(`^${escaped}$`, 'i');
+  const normalized = pattern.trim().replace(/\/+$|\/$/g, '');
+  const escaped = normalized.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*').replace(/\?/g, '.');
+  return new RegExp(`^${escaped}(?:$|/.*$)`, 'i');
 };
 
 export function parseForgeIgnore(files: ProjectFile[]): string[] {
