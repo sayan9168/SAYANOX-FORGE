@@ -2,11 +2,13 @@
 
 > **Local-first developer engineering, security analysis, project health and code intelligence workspace.**
 
-[![CI](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/ci.yml/badge.svg)](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/ci.yml) [![Deploy](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/pages.yml/badge.svg)](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/pages.yml) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![CI](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/ci.yml/badge.svg)](https://github.com/sayan9168/SAYANOX-FORGE/actions/workflows/ci.yml) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 ## 🚀 Try FORGE
 
-**Live browser demo:** https://sayan9168.github.io/SAYANOX-FORGE/
+**Vercel deployment:** Connect this repository to Vercel and use the generated production URL as the public demo. Vercel automatically creates production deployments from the `main` branch after the GitHub repository is connected. citeturn1search1turn1search3
+
+**One-click Vercel import:** https://vercel.com/new/clone?repository-url=https://github.com/sayan9168/SAYANOX-FORGE
 
 No account is required by the application. Load a project folder in the browser and run the local analyzer. The demo is designed for safe testing with sample or non-sensitive source code.
 
@@ -62,7 +64,7 @@ SAYANOX FORGE is a browser-native engineering cockpit built around a simple prin
 
 ## 🧪 Test it in the live demo
 
-1. Open the **Live browser demo** above.
+1. Open the Vercel production URL generated after importing the repository.
 2. Start with the built-in sample project.
 3. Open **Analyzer** and review findings.
 4. Open **Security** to inspect the 30-rule catalog.
@@ -100,7 +102,7 @@ Use FORGE only on code and systems you own or are explicitly authorized to asses
 
 ## 🔒 Privacy model
 
-Source analysis is designed to happen in the browser. FORGE does not require a FORGE backend or paid AI API. Scan history is stored locally in browser storage. The live demo is a static deployment of the application.
+Source analysis is designed to happen in the browser. FORGE does not require a FORGE backend or paid AI API. Scan history is stored locally in browser storage. The deployed application is a static frontend.
 
 ## 💻 Development
 
@@ -128,11 +130,13 @@ npm run preview
 
 ## 🌐 Deployment
 
-The repository includes a GitHub Pages workflow. Every push to `main` builds, tests and deploys the static application to:
+### Vercel
 
-**https://sayan9168.github.io/SAYANOX-FORGE/**
+Import `sayan9168/SAYANOX-FORGE` into Vercel, keep the project root at `/`, and use the standard Vite build configuration. Vercel can automatically deploy every push to `main` and generate preview deployments for branches/PRs. citeturn1search1turn1search3
 
-The deployment workflow uses GitHub Pages permissions and uploads only the generated `dist` artifact.
+**Vercel import:** https://vercel.com/new/clone?repository-url=https://github.com/sayan9168/SAYANOX-FORGE
+
+No GitHub Pages workflow is included because GitHub Pages was not enabled for this repository; this avoids a permanently failing Pages job.
 
 ## 🤝 Contributing
 
