@@ -125,10 +125,6 @@ Use FORGE only on code and systems you own or are explicitly authorized to asses
 
 SAYANOX FORGE v0.3 is the intended feature-complete release of the browser-native workspace. Future work should prioritize maintenance, compatibility, test coverage, accessibility, performance, and carefully scoped security improvements rather than unnecessary feature bloat.
 
-## Suggested GitHub topics
-
-`security` · `sast` · `static-analysis` · `developer-tools` · `code-scanner` · `application-security` · `cybersecurity` · `typescript` · `react` · `vite` · `privacy-first` · `local-first` · `devtools` · `sarif` · `security-tools`
-
 ## License
 
 Apache License 2.0. See `LICENSE`.
