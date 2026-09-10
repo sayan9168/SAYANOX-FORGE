@@ -5,7 +5,7 @@ import { listPlugins, registerPlugin } from '../src/engine/plugins';
 import type { ProjectFile } from '../src/types';
 
 const files: ProjectFile[] = [
-  { path: 'package.json', content: '{"name":"demo","private":true}', size: 33 },
+  { path: 'package.json', content: '{"name":"demo","private":true}', size: 30 },
   { path: 'src/app.ts', content: 'export const ok = true;\n', size: 24 },
 ];
 
@@ -21,7 +21,7 @@ describe('v0.3 engineering engine', () => {
   it('calculates deterministic project statistics', () => {
     const stats = projectStats(files);
     expect(stats.fileCount).toBe(2);
-    expect(stats.totalBytes).toBe(57);
+    expect(stats.totalBytes).toBe(54);
     expect(stats.extensions).toEqual([['.json', 1], ['.ts', 1]]);
   });
 
